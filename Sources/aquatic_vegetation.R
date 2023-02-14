@@ -21,7 +21,7 @@ setwd(dir.repository)
 library(stringr)
 
 # Initialization
-log_extraction = T
+log_extraction = F
 data_bareme_extraction = 'jeu_de_donnes_jaugeages'    # jeu_de_donnes_jaugeages or jeu_de_donnes_courbes_correction
 
 # Load functions
@@ -47,6 +47,6 @@ if(log_extraction==T){
   load(file = file.path(station_extraction,data_bareme_extraction,'database.RData')) #stations_info_jaugeages
 }
 
-stations_info_jaugeages[[1]]
+Dh_station_info_jau[[1]]
 
 
