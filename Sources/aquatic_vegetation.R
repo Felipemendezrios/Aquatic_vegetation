@@ -21,7 +21,7 @@ setwd(dir.repository)
 library(stringr)
 
 # Initialization
-log_extraction = F
+log_extraction = T
 data_bareme_extraction = 'jeu_de_donnes_jaugeages'    # jeu_de_donnes_jaugeages or jeu_de_donnes_courbes_correction
 
 # Load functions
