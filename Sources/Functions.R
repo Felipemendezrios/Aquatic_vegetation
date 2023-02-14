@@ -14,6 +14,7 @@ extraction <- function(dir_data_ext,data_exraction){
   setwd(dir_data_ext)
   
   stations_info_jaugeages = NULL
+  Dh_station_info_jau = NULL
   nom_station = NULL
   
   for (i in 1:length(file_stations_info)){
@@ -38,18 +39,19 @@ extraction <- function(dir_data_ext,data_exraction){
     
     dh_id_start_end <- sort(c(Dh_id,id_veg_start_end),decreasing=F)
     
-    Dh_station_info_jau <- stations_info_jaugeages[[i]][dh_id_start_end,]
+    Dh_station_info_jau[[i]] <- stations_info_jaugeages[[i]][dh_id_start_end,]
     
-    write.table(Dh_station_info_jau, file=paste0(dir_data_ext,
+    write.table(Dh_station_info_jau[[i]], file=paste0(dir_data_ext,
                                                  '/',data_exraction,'/',
                                                  nom_station[i],'_tri.txt'), sep = '\t',row.names = F)
     
   }
   
-  save(stations_info_jaugeages, file=paste0(dir_data_ext,'/',data_exraction,'/donnes_explorer_CVL.RData'))
+  save(stations_info_jaugeages, file=paste0(dir_data_ext,'/',data_exraction,'/database.RData'))
+  save(Dh_station_info_jau, file=paste0(dir_data_ext,'/',data_exraction,'/database_to_explore.RData'))
   save(nom_station, file=paste0(dir_data_ext,'/',data_exraction,'/nom_station_organisation.RData'))
   
-  return(stations_info_jaugeages,nom_station)
+  return(list(stations_info_jaugeages,Dh_station_info_jau,nom_station))
 }
 
 
