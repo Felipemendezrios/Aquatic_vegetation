@@ -17,6 +17,12 @@ extraction <- function(dir_data_ext,data_exraction){
   Dh_station_info_jau = NULL
   nom_station = NULL
   
+  if(data_exraction=='jeu_de_donnes_jaugeages'){
+    colnames_colonnes <- c('Date','No_jau','h(cm)','Q(m3/s)','Dh(cm)','Mode_jau','Inc_rel_Q_val','Inc_rel_Q_cal')
+  }else{
+    colnames_colonnes <- c('Date','Dh(cm)')
+  }
+  
   for (i in 1:length(file_stations_info)){
     
     station_temp <- file_stations_info[i]
@@ -27,7 +33,7 @@ extraction <- function(dir_data_ext,data_exraction){
                                                na.string="",
                                                fill=T,
                                                skip = 1)
-    colnames(stations_info_jaugeages[[i]]) <- c('Date','No_jau','h(cm)','Q(m3/s)','Dh(cm)','Mode_jau','Inc_rel_Q_val','Inc_rel_Q_cal')
+    colnames(stations_info_jaugeages[[i]]) <- colnames_colonnes
     
     Dh_id <- which(!is.na(stations_info_jaugeages[[i]]$`Dh(cm)`)==T)
     Limit_Dh <- which(!is.na(stations_info_jaugeages[[i]]$`Dh(cm)`)==F)
