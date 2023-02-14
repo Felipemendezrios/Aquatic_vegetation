@@ -49,6 +49,7 @@ extraction <- function(dir_data_ext,data_exraction){
   save(stations_info_jaugeages, file=paste0(dir_data_ext,'/',data_exraction,'/donnes_explorer_CVL.RData'))
   save(nom_station, file=paste0(dir_data_ext,'/',data_exraction,'/nom_station_organisation.RData'))
   
+  return(stations_info_jaugeages,nom_station)
 }
 
 
