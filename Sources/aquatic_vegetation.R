@@ -60,7 +60,7 @@ for(i in 1:length(Dh_station_info)){
 
   ggplot(Dh_station_info_complet,aes(Date,`Dh(cm)`))+
     geom_point(aes(colour=factor(id)),alpha=0.5)+
-    labs(title='Points de correction',
+    labs(title='Courbe de correction',
          x='Date (année)',
          y='Dh (cm)',
          colour='Station')+
