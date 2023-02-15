@@ -22,7 +22,7 @@ library(stringr)
 library(ggplot2)
 
 # Initialization
-log_extraction = T
+log_extraction = F
 data_bareme_extraction = 'jeu_de_donnes_courbes_correction'    # jeu_de_donnes_jaugeages or jeu_de_donnes_courbes_correction
 
 # Load functions
